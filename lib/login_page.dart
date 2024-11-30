@@ -62,7 +62,7 @@ class LoginPage extends StatelessWidget {
                       hintText: "Enter your phone",
                       validator: (value) {
                         if (value!.length < 17) {
-                          return "Please enter a valid phone number";
+                          return "Raqam kiriting";
                         }
                         return null;
                       },
