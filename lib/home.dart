@@ -56,7 +56,7 @@ class _HomesScreenState extends State<HomesScreen> {
       {"name": "Ice Cream", "price": "14000 so'm"},
       {"name": "Baklava", "price": "10000 so'm"},
       {"name": "Éclair", "price": "9000 so'm"},
-      {"name": "Croissant", "price": "13000 so'm"},
+      {"name": "Croissant", "price": "130000 so'm"},
     ],
   };
 
@@ -95,7 +95,7 @@ class _HomesScreenState extends State<HomesScreen> {
                         ),
                         Expanded(
                           child: TextField(
-                            cursorColor: AppColor.iconcolor,
+                            cursorColor: Colors.grey,
                             decoration: InputDecoration(
                               hintText: "Yaxshi korgan ovkatini tanla",
                               hintStyle: TextStyle(color: Colors.grey),
