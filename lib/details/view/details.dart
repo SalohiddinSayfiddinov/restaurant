@@ -20,7 +20,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
           backgroundColor: Colors.grey,
           title: const Text(
             "Details",
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
           ),
           centerTitle: true,
         ),
