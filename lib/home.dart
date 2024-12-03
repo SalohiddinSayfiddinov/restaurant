@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:restaurant/bg.dart';
-
-
+import 'package:restaurant/details/view/details.dart';
 
 class HomesScreen extends StatefulWidget {
   const HomesScreen({super.key});
@@ -11,7 +10,13 @@ class HomesScreen extends StatefulWidget {
 }
 
 class _HomesScreenState extends State<HomesScreen> {
-  final List<String> categories = ["Pizza", "Burgers", "Sushi", "Pasta", "Desserts"];
+  final List<String> categories = [
+    "Pizza",
+    "Burgers",
+    "Sushi",
+    "Pasta",
+    "Desserts"
+  ];
   final Map<String, List<Map<String, String>>> foodItems = {
     "Pizza": [
       {"name": "Pepperoni", "price": "140000 so'm"},
@@ -60,23 +65,20 @@ class _HomesScreenState extends State<HomesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
       body: LayoutBuilder(
         builder: (context, constraints) {
-     
           int crossAxisCount;
           if (constraints.maxWidth >= 1024) {
             crossAxisCount = 4;
           } else if (constraints.maxWidth >= 768) {
             crossAxisCount = 3;
           } else {
-            crossAxisCount = 2; 
+            crossAxisCount = 2;
           }
 
           return SingleChildScrollView(
             child: Column(
               children: [
-             
                 Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Container(
@@ -105,7 +107,6 @@ class _HomesScreenState extends State<HomesScreen> {
                     ),
                   ),
                 ),
-    
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Padding(
@@ -125,21 +126,22 @@ class _HomesScreenState extends State<HomesScreen> {
                     ),
                   ),
                 ),
-               
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 16.0, vertical: 16.0),
                   child: GridView.builder(
                     physics: const NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: crossAxisCount, 
+                      crossAxisCount: crossAxisCount,
                       crossAxisSpacing: 16,
                       mainAxisSpacing: 16,
                     ),
                     itemCount: foodItems[selectedCategory]?.length ?? 0,
                     itemBuilder: (context, index) {
                       final item = foodItems[selectedCategory]![index];
-                      return FoodItemCard(name: item["name"]!, price: item["price"]!);
+                      return FoodItemCard(
+                          name: item["name"]!, price: item["price"]!);
                     },
                   ),
                 ),
@@ -153,7 +155,11 @@ class _HomesScreenState extends State<HomesScreen> {
 }
 
 class FoodCategoryButton extends StatelessWidget {
-  const FoodCategoryButton({super.key, required this.title, required this.isSelected, required this.onTap});
+  const FoodCategoryButton(
+      {super.key,
+      required this.title,
+      required this.isSelected,
+      required this.onTap});
   final String title;
   final bool isSelected;
   final VoidCallback onTap;
@@ -184,36 +190,45 @@ class FoodItemCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.black,
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(12),
-              child: Image.asset(
-               "assets/image/OIP.jpg",
-                fit: BoxFit.cover,
-                height:100,
-
-                width: double.infinity,
+    return InkWell(
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const DetailsScreen(),
+            ));
+      },
+      borderRadius: BorderRadius.circular(12),
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+                child: Image.network(
+                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQErkNKMmH0WUulsuEIXxlBzENBKEhcjAkl0g&s",
+                  fit: BoxFit.cover,
+                  height: 100,
+                  width: double.infinity,
+                ),
               ),
-            ),
-            const SizedBox(height: 8),
-            Text(
-              name,
-              style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
-            ),
-            Text(
-              price,
-              style: const TextStyle(color: Colors.white60, fontSize: 14),
-            ),
-          ],
+              const SizedBox(height: 8),
+              Text(
+                name,
+                style:
+                    const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+              Text(
+                price,
+                style: const TextStyle(fontSize: 14),
+              ),
+            ],
+          ),
         ),
       ),
     );

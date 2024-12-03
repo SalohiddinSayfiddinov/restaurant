@@ -33,7 +33,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
-                    boxShadow: [
+                    boxShadow: const [
                       BoxShadow(
                           color: Colors.black45,
                           blurRadius: 15,
@@ -49,7 +49,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                   ),
                 ),
                 const SizedBox(height: 20),
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
@@ -69,7 +69,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                   ],
                 ),
                 const SizedBox(height: 10),
-                Text(
+                const Text(
                   "This juicy, gourmet burger is crafted from premium beef, topped with fresh veggies, melted cheese, and our special sauce, all sandwiched in a freshly baked brioche bun. It's the ultimate burger experience for anyone craving something rich and flavorful.",
                   style: TextStyle(
                       color: Colors.white70,
@@ -88,7 +88,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
                         color: Colors.white,
-                        boxShadow: [
+                        boxShadow: const [
                           BoxShadow(
                               color: Colors.black12,
                               blurRadius: 10,
@@ -113,7 +113,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                                 builder: (BuildContext context, int state) {
                               return Text(
                                 state.toString(),
-                                style: TextStyle(
+                                style: const TextStyle(
                                   color: Colors.black,
                                   fontSize: 28,
                                   fontWeight: FontWeight.bold,
