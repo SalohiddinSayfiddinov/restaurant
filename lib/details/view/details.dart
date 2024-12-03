@@ -19,7 +19,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
         appBar: AppBar(
           backgroundColor: Colors.grey,
           title: const Text(
-            "Details",
+            "Detailss",
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
           ),
           centerTitle: true,
