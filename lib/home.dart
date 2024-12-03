@@ -95,7 +95,7 @@ class _HomesScreenState extends State<HomesScreen> {
                         ),
                         Expanded(
                           child: TextField(
-                            cursorColor: AppColor.iconcolor,
+                            cursorColor: Colors.grey,
                             decoration: InputDecoration(
                               hintText: "Yaxshi korgan ovkatini tanla",
                               hintStyle: TextStyle(color: Colors.grey),
